@@ -1,6 +1,11 @@
 {
   "name": "client",
   "version": "0.1.0",
+  "jest": {
+    "moduleNameMapper": {
+      "^axios": "axios/dist/node/axios.cjs"
+    }
+  },
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
