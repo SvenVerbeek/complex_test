@@ -8,7 +8,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD}}
       - run: docker build -t svenverbeek/demo-client -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true svenverbeek/demo-client npm test
@@ -27,7 +27,7 @@ jobs:
         run: zip -r deploy.zip . -x '*.git*'
 
       - name: Deploy to EB
-        uses: SvenVerbeek/complex_test@v1
+        uses: SvenVerbeek/complex_test
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
