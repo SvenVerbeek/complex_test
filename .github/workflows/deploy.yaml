@@ -31,8 +31,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
           aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          application_name: multi-gh
-          environment_name: Multi-gh-env
+          application_name: multi-docker
+          environment_name: MultiDocker-env
           existing_bucket_name: elasticbeanstalk-eu-central-1-067460827288
           region: eu-central-1
           version_label: ${{ github.sha }}
