@@ -1,11 +1,11 @@
-version: "3"
+version: '3'
 services:
   client:
-    image: "svenverbeek/complex:client"
+    image: 'svenverbeek/complex:client'
     mem_limit: 128m
     hostname: client
   server:
-    image: "svenverbeek/complex:server"
+    image: 'svenverbeek/complex:server'
     mem_limit: 128m
     hostname: api
     environment:
@@ -17,15 +17,15 @@ services:
       - PGPASSWORD=$PGPASSWORD
       - PGPORT=$PGPORT
   worker:
-    image: "svenverbeek/complex:worker"
+    image: 'svenverbeek/complex:worker'
     mem_limit: 128m
     hostname: worker
     environment:
       - REDIS_HOST=$REDIS_HOST
       - REDIS_PORT=$REDIS_PORT
   nginx:
-    image: "svenverbeek/complex:nginx"
+    image: 'svenverbeek/complex:nginx'
     mem_limit: 128m
     hostname: nginx
     ports:
-      - "80:80"
+      - '80:80'
