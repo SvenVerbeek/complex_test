@@ -13,15 +13,15 @@ jobs:
       - run: docker build -t svenverbeek/demo-client -f ./client/Dockerfile.dev ./client
       - run: docker run -e CI=true svenverbeek/demo-client npm test
 
-      - run: docker build -t svenverbeek/complex:client ./client
       - run: docker build -t svenverbeek/complex:server ./server
       - run: docker build -t svenverbeek/complex:worker ./worker
       - run: docker build -t svenverbeek/complex:nginx ./nginx
+      - run: docker build -t svenverbeek/complex:client ./client
 
-      - run: docker push svenverbeek/complex:client
       - run: docker push svenverbeek/complex:server
       - run: docker push svenverbeek/complex:worker
       - run: docker push svenverbeek/complex:nginx
+      - run: docker push svenverbeek/complex:client
 
       - name: Generate deployment package
         run: zip -r deploy.zip . -x '*.git*'
