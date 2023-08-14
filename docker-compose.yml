@@ -4,6 +4,8 @@ services:
     image: 'svenverbeek/complex:client'
     mem_limit: 128m
     hostname: client
+    environment:
+      - WDS_SOCKET_PORT=0
   server:
     image: 'svenverbeek/complex:server'
     mem_limit: 128m
